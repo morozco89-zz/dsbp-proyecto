@@ -38,7 +38,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
-			<artifactId>camel-jaxb-starter</artifactId>
+			<artifactId>camel-jacksonxml-starter</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
 		<dependency>

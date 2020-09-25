@@ -1,6 +1,7 @@
 package co.edu.javeriana.dsbp.proyecto.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.camel.ProducerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class RepositoryController {
 	private ProducerTemplate producerTemplate;
 
 	@GetMapping("/ebi")
-	public String ebiSearch(@RequestParam String query) {
-		return producerTemplate.requestBody("direct:ebi-proxy", query, String.class);
+	public List<Article> ebiSearch(@RequestParam String query) {
+		return producerTemplate.requestBody("direct:ebi-proxy", query, List.class);
 	}
 	
 	@RequestMapping("/")

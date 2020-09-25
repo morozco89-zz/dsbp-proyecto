@@ -48,4 +48,15 @@ public class ResponseWrapper {
     public void setResultList(List<Result> resultList) {
         this.resultList = resultList;
     }
+
+    @Override
+    public String toString() {
+        return "ResponseWrapper{" +
+                "version='" + version + '\'' +
+                ", hitCount=" + hitCount +
+                ", nextCursorMark='" + nextCursorMark + '\'' +
+                ", request=" + request +
+                ", resultList=" + resultList +
+                '}';
+    }
 }

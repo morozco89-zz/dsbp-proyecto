@@ -1,13 +1,16 @@
 package co.edu.javeriana.dsbp.proyecto.model.ebi;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.sql.Date;
 import java.util.List;
 
 public class Result {
-    private int id;
+    private String id;
     private String source;
     private String pmid;
     private String pmcid;
+    @JacksonXmlElementWrapper(useWrapping = false)
     private List<FullTextId> fullTextIdList;
     private String doi;
     private String title;
@@ -19,6 +22,8 @@ public class Result {
     private String journalIssn;
     private String pageInfo;
     private String pubType;
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private BookOrReportDetails bookOrReportDetails;
     private char isOpenAccess;
     private char inEPMC;
     private char inPMC;
@@ -30,15 +35,18 @@ public class Result {
     private char hasTextMinedTerms;
     private char hasDbCrossReferences;
     private char hasLabsLinks;
+    private int versionNumber;
     private char hasTMAccessionNumbers;
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private List<TmAccessionTypeList> tmAccessionTypeList;
     private Date firstIndexDate;
     private Date firstPublicationDate;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -264,5 +272,29 @@ public class Result {
 
     public void setFirstPublicationDate(Date firstPublicationDate) {
         this.firstPublicationDate = firstPublicationDate;
+    }
+
+    public BookOrReportDetails getBookOrReportDetails() {
+        return bookOrReportDetails;
+    }
+
+    public void setBookOrReportDetails(BookOrReportDetails bookOrReportDetails) {
+        this.bookOrReportDetails = bookOrReportDetails;
+    }
+
+    public int getVersionNumber() {
+        return versionNumber;
+    }
+
+    public void setVersionNumber(int versionNumber) {
+        this.versionNumber = versionNumber;
+    }
+
+    public List<TmAccessionTypeList> getTmAccessionTypeList() {
+        return tmAccessionTypeList;
+    }
+
+    public void setTmAccessionTypeList(List<TmAccessionTypeList> tmAccessionTypeList) {
+        this.tmAccessionTypeList = tmAccessionTypeList;
     }
 }
