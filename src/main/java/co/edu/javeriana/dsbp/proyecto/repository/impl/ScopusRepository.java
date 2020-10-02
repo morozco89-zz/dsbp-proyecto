@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -20,7 +22,7 @@ public class ScopusRepository implements WebServiceRepository {
     private static final Logger logger = LogManager.getLogger(ScopusRepository.class);
 	
 	@Override
-	public ArrayList<Article> search(ArrayList<String> keywords) {
+	public List<Article> search(List<String> keywords) {
 		if(keywords == null || keywords.size() == 0) return new ArrayList<Article>();
 		
 		String queryFilter = String.join(",", keywords);

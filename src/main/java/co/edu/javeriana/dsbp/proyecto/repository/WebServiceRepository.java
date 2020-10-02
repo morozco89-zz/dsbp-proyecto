@@ -1,9 +1,11 @@
 package co.edu.javeriana.dsbp.proyecto.repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import co.edu.javeriana.dsbp.proyecto.model.Article;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface WebServiceRepository {
-	public ArrayList<Article> search(ArrayList<String> keywords);
+	List<Article> search(List<String> keywords);
 }
