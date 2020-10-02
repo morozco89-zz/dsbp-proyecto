@@ -23,9 +23,14 @@ public class RepositoryController {
 	public List<Article> ebiSearch(@RequestParam String query) {
 		return producerTemplate.requestBody("direct:ebi-proxy", query, List.class);
 	}
+
+	@GetMapping("/all")
+	public List<Article> search(@RequestParam String query) {
+		return producerTemplate.requestBody("direct:search-articles-service", query, List.class);
+	}
 	
-	@RequestMapping("/")
-	public ArrayList<Article> search(@RequestBody ArrayList<String> keywords) {
+	@RequestMapping("/scope")
+	public ArrayList<Article> scopeSearch(@RequestBody ArrayList<String> keywords) {
 		ArrayList<Article> returnable = new ArrayList<Article>();
 		returnable.addAll(scopusRepository.search(keywords));
 		return returnable;
