@@ -26,6 +26,10 @@ public class RepositoryController {
 
 	@GetMapping("/all")
 	public List<Article> search(@RequestParam String query) {
+		 List<Article> articles = producerTemplate.requestBody("direct:search-articles-service", query, List.class);
+		 List<String> arrayOfStrings = new ArrayList<String>();
+		 arrayOfStrings.add(query);
+		 articles.addAll(scopusRepository.search(arrayOfStrings));
 		return producerTemplate.requestBody("direct:search-articles-service", query, List.class);
 	}
 	
